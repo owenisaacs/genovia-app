@@ -21,7 +21,9 @@ curl --location 'http://localhost:8080/consultations/answers' \
         }
 ]
 '
+
 This example request uses the questions stored in memory in the app and returns a boolean response true or false on whether we would prescribe for this patient's consultation. 
+
 E.g, the above response will return:
 
 {
