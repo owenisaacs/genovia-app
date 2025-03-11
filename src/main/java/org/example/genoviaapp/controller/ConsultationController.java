@@ -13,7 +13,7 @@ public class ConsultationController {
 
     @GetMapping("/questions")
     public QuestionModel getQuestions() {
-        String[] questions = {"Are you feeling symptons?", "Do you want a prescription?"};
+        String[] questions = {"Are you feeling symptoms?", "Do you want a prescription?"};
         return new QuestionModel(questions);
     }
 
