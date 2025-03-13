@@ -3,6 +3,8 @@ package org.example.genoviaapp.controller;
 import org.example.genoviaapp.model.AnswerModel;
 import org.example.genoviaapp.model.PrescriptionDecisionModel;
 import org.example.genoviaapp.model.QuestionModel;
+import org.example.genoviaapp.service.PrescriptionDecisionService;
+import org.example.genoviaapp.service.QuestionGenerationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,15 +13,16 @@ import java.util.List;
 @RequestMapping("consultations")
 public class ConsultationController {
 
+    final QuestionGenerationService questionGenerationService = new QuestionGenerationService();
+    final PrescriptionDecisionService prescriptionDecisionService = new PrescriptionDecisionService();
+
     @GetMapping("/questions")
-    public QuestionModel getQuestions() {
-        String[] questions = {"Are you feeling symptoms?", "Do you want a prescription?"};
-        return new QuestionModel(questions);
+    public List<QuestionModel> getQuestions() {
+        return questionGenerationService.generateQuestions();
     }
 
     @PostMapping("/answers")
     public PrescriptionDecisionModel postAnswer(@RequestBody List<AnswerModel> answers) {
-        boolean decision = answers.stream().allMatch(answer -> answer.getAnswer().equalsIgnoreCase("yes"));
-        return new PrescriptionDecisionModel(decision);
+        return prescriptionDecisionService.getDecision(answers);
     }
 }

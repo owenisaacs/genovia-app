@@ -1,27 +1,17 @@
 package org.example.genoviaapp.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AnswerModel {
-    String question;
-    String answer;
+    QuestionModel question;
+    String response;
 
-    public AnswerModel(String question, String answer) {
+    public AnswerModel(QuestionModel question, String response) {
         this.question = question;
-        this.answer = answer;
+        this.response = response;
     }
 
-    public String getQuestion() {
-        return question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

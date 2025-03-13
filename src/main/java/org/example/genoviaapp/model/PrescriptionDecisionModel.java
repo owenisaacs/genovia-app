@@ -1,17 +1,18 @@
 package org.example.genoviaapp.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PrescriptionDecisionModel {
-    boolean prescriptionDescision;
 
-    public PrescriptionDecisionModel(boolean prescriptionDescision) {
-        this.prescriptionDescision = prescriptionDescision;
+    boolean prescriptionDecision;
+    Likeliness likeliness;
+
+    public PrescriptionDecisionModel(boolean prescriptionDecision, Likeliness likeliness) {
+        this.prescriptionDecision = prescriptionDecision;
+        this.likeliness  = likeliness;
     }
 
-    public boolean isPrescriptionDescision() {
-        return prescriptionDescision;
-    }
-
-    public void setPrescriptionDescision(boolean prescriptionDescision) {
-        this.prescriptionDescision = prescriptionDescision;
-    }
 }
